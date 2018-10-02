@@ -13,14 +13,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
   fetch('http://localhost:3000/api/v1/events')
   .then(response => response.json())
-  .then(eventData => store = [...eventData])
-
-  store.map(event => {
-    document.getElementById(event.board_id){
-      //code for divs
-      
-    }
+  .then(eventData => {
+    store = [...eventData];
+    
   })
+
+  // store.map(event => {
+  //   document.getElementById(event.board_id){
+  //     //code for divs
+  //
+  //   }
+  // })
 
 
 }) // end of document listener
