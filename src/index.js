@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-
+  store = []
   const diceDisplay = document.getElementById('diceContainer')
   diceDisplay.addEventListener("click", event =>{
     if (event.target.id === "rollDice"){
@@ -13,7 +13,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
   fetch('http://localhost:3000/api/v1/events')
   .then(response => response.json())
-  .then(eventData => console.log(eventData))
+  .then(eventData => store = [...eventData])
+
+  store.map(event => {
+    document.getElementById(event.board_id){
+      //code for divs
+      
+    }
+  })
+
 
 }) // end of document listener
 
