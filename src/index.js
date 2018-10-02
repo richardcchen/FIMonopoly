@@ -16,19 +16,19 @@ document.addEventListener("DOMContentLoaded", function() {
         else if (bottomRow.includes(+event.board_id)) {
           const eventId = document.getElementById(`${event.board_id}`)
           eventId.children[1].innerText = event.name
-          eventId.children[2].innerText = `Energy: ${event.energy}, IQ: ${event.IQ}`
+          eventId.children[2].innerText = `E:${event.energy} IQ:${event.IQ}`
         }else if (leftRow.includes(+event.board_id)) {
           const eventId = document.getElementById(`${event.board_id}`)
           eventId.children[0].children[0].innerText = event.name
-          eventId.children[0].children[1].innerText = `Energy: ${event.energy}, IQ: ${event.IQ}`
+          eventId.children[0].children[1].innerText = `E:${event.energy} IQ:${event.IQ}`
         } else if (topRow.includes(+event.board_id)) {
           const eventId = document.getElementById(`${event.board_id}`)
           eventId.children[1].innerText = event.name
-          eventId.children[2].innerText = `Energy: ${event.energy}, IQ: ${event.IQ}`
+          eventId.children[2].innerText = `E:${event.energy} IQ:${event.IQ}`
         } else if (rightRow.includes(+event.board_id)) {
           const eventId = document.getElementById(`${event.board_id}`)
           eventId.children[0].children[0].innerText = event.name
-          eventId.children[0].children[1].innerText = `Energy: ${event.energy}, IQ: ${event.IQ}`
+          eventId.children[0].children[1].innerText = `E:${event.energy} IQ:${event.IQ}`
         }
       }) //end of for each
     })

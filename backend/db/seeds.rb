@@ -8,7 +8,7 @@ events = [{
     },
     {
       "board_id": 2,
-      "name": "Prework",
+      "name": "Prework & FI Intro",
       "description": "Finished Prework",
       "event_type": "purple",
       "energy": 60,
@@ -24,7 +24,7 @@ events = [{
     },
     {
       "board_id": 4,
-      "name": "Intro to OO",
+      "name": "Introduction to OO",
       "description": "Learned Object Orientation",
       "event_type": "purple",
       "energy": 60,
@@ -72,7 +72,7 @@ events = [{
     },
     {
       "board_id": 10,
-      "name": "ActiveRecord",
+      "name": "ActiveRecord Associations",
       "description": "Learned ActiveRecord",
       "event_type": "light blue",
       "energy": 120,
@@ -168,7 +168,7 @@ events = [{
     },
     {
       "board_id": 22,
-      "name": "Intro to JS",
+      "name": "Intro to JavaScript",
       "description": "Learned the Basis of JavaScript",
       "event_type": "red",
       "energy": 220,
@@ -208,7 +208,7 @@ events = [{
     },
     {
       "board_id": 27,
-      "name": "Intro to DOM",
+      "name": "Intro to the DOM",
       "description": "Leaned Document Object Model",
       "event_type": "yellow",
       "energy": 260,
