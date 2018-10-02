@@ -71,8 +71,8 @@ div {
 .top .space2 .color {
   width: 100%;
   height: 25%;
-  margin-top: 147px;
-  border-top: 1px solid black;
+  margin-top: 0px;
+  border-top: 3px solid black;
 }
 .bottom .space2 .color {
   width: 100%;
