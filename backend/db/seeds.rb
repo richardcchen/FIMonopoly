@@ -3,23 +3,23 @@ events = [{
       "name": "GO",
       "description": "Game Starts",
       "event_type": "go",
-      "energy": -1000,
+      "energy": +1000,
       "IQ": 0
     },
     {
       "board_id": 2,
-      "name": "Prework & FI Intro",
+      "name": "Prework",
       "description": "Finished Prework",
       "event_type": "purple",
-      "energy": 60,
+      "energy": -60,
       "IQ": 2
     },
     {
       "board_id": 3,
-      "name": "Instructor requests for a talk",
+      "name": "Instructor Feedback",
       "description": "Got feedback for how to study",
       "event_type": "chest",
-      "energy": -1000,
+      "energy": +1000,
       "IQ": 0
     },
     {
@@ -27,7 +27,7 @@ events = [{
       "name": "Introduction to OO",
       "description": "Learned Object Orientation",
       "event_type": "purple",
-      "energy": 60,
+      "energy": -60,
       "IQ": 4
     },
     {
@@ -35,15 +35,15 @@ events = [{
       "name": "You became sick",
       "description": "Take a Rest at Home",
       "event_type": "income tax",
-      "energy": 200,
+      "energy": -200,
       "IQ": 0
     },
     {
       "board_id": 6,
-      "name": "Jonathan 1 on 1",
+      "name": "Jon 1 on 1",
       "description": "Got advices from Jon",
       "event_type": "railroad",
-      "energy": -200,
+      "energy": +200,
       "IQ": 0
     },
     {
@@ -51,23 +51,23 @@ events = [{
       "name": "Ruby One to Many",
       "description": "Learned One to Many Relationship",
       "event_type": "light blue",
-      "energy": 100,
+      "energy": -100,
       "IQ": 6
     },
     {
       "board_id": 8,
-      "name": "Pairing Lab",
-      "description": "Paired with classmate and Learned more",
+      "name": "Rendom Event",
+      "description": "Nobody knows the future until hit this grid",
       "event_type": "chance",
-      "energy": 100,
-      "IQ": 2
+      "energy": 0,
+      "IQ": 0
     },
     {
       "board_id": 9,
       "name": "Ruby Many to Many",
       "description": "Learned Many to Many Relationship",
       "event_type": "light blue",
-      "energy": 100,
+      "energy": -100,
       "IQ": 6
     },
     {
@@ -75,7 +75,7 @@ events = [{
       "name": "ActiveRecord Associations",
       "description": "Learned ActiveRecord",
       "event_type": "light blue",
-      "energy": 120,
+      "energy": -120,
       "IQ": 8
     },
     {
@@ -83,7 +83,7 @@ events = [{
       "name": "Study for Code Challenge at Home",
       "description": "Review all material in within the Mod",
       "event_type": "jail",
-      "energy": 200,
+      "energy": -200,
       "IQ": 0
     },
     {
@@ -91,7 +91,7 @@ events = [{
       "name": "Intro to Sinatra",
       "description": "Learned the Basis of Sinatra",
       "event_type": "pink",
-      "energy": 130,
+      "energy": -130,
       "IQ": 10
     },
     {
@@ -99,7 +99,7 @@ events = [{
       "name": "SQL",
       "description": "Get more Energy",
       "event_type": "electric company",
-      "energy": 150,
+      "energy": -150,
       "IQ": 0
     },
     {
@@ -107,7 +107,7 @@ events = [{
       "name": "Sinatra Forms",
       "description": "Learned Sinatra Forms",
       "event_type": "pink",
-      "energy": 140,
+      "energy": -140,
       "IQ": 10
     },
     {
@@ -115,7 +115,7 @@ events = [{
       "name": "Sinatra Full CRUD",
       "description": "Learn Sinatra Full CRUD",
       "event_type": "pink",
-      "energy": 160,
+      "energy": -160,
       "IQ": 12
     },
     {
@@ -123,7 +123,7 @@ events = [{
       "name": "Garry 1 on 1",
       "description": "Got advices from Garry",
       "event_type": "railroad",
-      "energy": 200,
+      "energy": -200,
       "IQ": 0
     },
     {
@@ -131,23 +131,23 @@ events = [{
       "name": "Intro to Rails",
       "description": "Learn the Basis of Rails",
       "event_type": "orange",
-      "energy": 160,
+      "energy": -160,
       "IQ": 14
     },
     {
       "board_id": 18,
-      "name": "Instructor requests for a talk",
+      "name": "Instructor Feedback",
       "description": "Got feedback for how to study",
       "event_type": "chest",
-      "energy": -1000,
+      "energy": +1000,
       "IQ": 0
     },
     {
       "board_id": 19,
-      "name": "Rails Forms && Valboard_idations",
+      "name": "Rails Forms && Validations",
       "description": "Learned more on Rails",
       "event_type": "orange",
-      "energy": 160,
+      "energy": -160,
       "IQ": 14
     },
     {
@@ -155,7 +155,7 @@ events = [{
       "name": "RESTful Routes",
       "description": "Learned RESTful Routes ",
       "event_type": "orange",
-      "energy": 200,
+      "energy": -200,
       "IQ": 16
     },
     {
@@ -171,23 +171,23 @@ events = [{
       "name": "Intro to JavaScript",
       "description": "Learned the Basis of JavaScript",
       "event_type": "red",
-      "energy": 220,
+      "energy": -220,
       "IQ": 18
     },
     {
       "board_id": 23,
-      "name": "Pairing Lab",
-      "description": "Paired with classmate and Learned more",
+      "name": "Rendom Event",
+      "description": "Nobody knows the future until hit this grid",
       "event_type": "chance",
-      "energy": 100,
-      "IQ": 2
+      "energy": 0,
+      "IQ": 0
     },
     {
       "board_id": 24,
       "name": "JS Functional Programming",
       "description": "Learned more on JavaScript",
       "event_type": "red",
-      "energy": 220,
+      "energy": -220,
       "IQ": 18
     },
     {
@@ -195,7 +195,7 @@ events = [{
       "name": "JS Object Oriented",
       "description": "Learned JavaScript Object Orientation",
       "event_type": "red",
-      "energy": 240,
+      "energy": -240,
       "IQ": 20
     },
     {
@@ -203,7 +203,7 @@ events = [{
       "name": "Watching Evans's Costumes",
       "description": "Have Fun and Relaxed",
       "event_type": "railroad",
-      "energy": -200,
+      "energy": +200,
       "IQ": 0
     },
     {
@@ -211,7 +211,7 @@ events = [{
       "name": "Intro to the DOM",
       "description": "Leaned Document Object Model",
       "event_type": "yellow",
-      "energy": 260,
+      "energy": -260,
       "IQ": 0
     },
     {
@@ -219,7 +219,7 @@ events = [{
       "name": "Learning Fetch",
       "description": "Learned Fetch Requests",
       "event_type": "yellow",
-      "energy": 260,
+      "energy": -260,
       "IQ": 22
     },
     {
@@ -227,7 +227,7 @@ events = [{
       "name": "Flatiron Student Present",
       "description": "Finished FSP",
       "event_type": "water",
-      "energy": 150,
+      "energy": -150,
       "IQ": 0
     },
     {
@@ -235,7 +235,7 @@ events = [{
       "name": "JS Using Rails API",
       "description": "Leaned how to build API",
       "event_type": "yellow",
-      "energy": 280,
+      "energy": -280,
       "IQ": 24
     },
     {
@@ -243,7 +243,7 @@ events = [{
       "name": "Failed Code Challenge",
       "description": "Failed and Being Sad",
       "event_type": "go to jail",
-      "energy": 200,
+      "energy": -200,
       "IQ": 0
     },
     {
@@ -251,7 +251,7 @@ events = [{
       "name": "Intro to React",
       "description": "Learned the Basis of React",
       "event_type": "green",
-      "energy": 300,
+      "energy": -300,
       "IQ": 26
     },
     {
@@ -259,15 +259,15 @@ events = [{
       "name": "JSX and Props",
       "description": "Learned JSX and Props",
       "event_type": "green",
-      "energy": 300,
+      "energy": -300,
       "IQ": 26
     },
     {
       "board_id": 34,
-      "name": "Instructor requests for a talk",
+      "name": "Instructor Feedback",
       "description": "Got feedback for how to study",
       "event_type": "chest",
-      "energy": -1000,
+      "energy": +1000,
       "IQ": 0
     },
     {
@@ -275,7 +275,7 @@ events = [{
       "name": "Props and State",
       "description": "Learned Props and State",
       "event_type": "green",
-      "energy": 320,
+      "energy": -320,
       "IQ": 28
     },
     {
@@ -283,7 +283,7 @@ events = [{
       "name": "Andrew 1 on 1",
       "description": "Got advices from Andrew",
       "event_type": "railroad",
-      "energy": 200,
+      "energy": -200,
       "IQ": 0
     },
     {
@@ -291,7 +291,7 @@ events = [{
       "name": "Pairing Lab",
       "description": "Paired with classmate and Learned more",
       "event_type": "chance",
-      "energy": 100,
+      "energy": -100,
       "IQ": 2
     },
     {
@@ -299,15 +299,15 @@ events = [{
       "name": "Lifecycle in React",
       "description": "Learned Lifecycle in React",
       "event_type": "blue",
-      "energy": 350,
+      "energy": -350,
       "IQ": 35
     },
     {
       "board_id": 39,
-      "name": "Your Final Project Topic was Rejected",
+      "name": "Final Project was Rejected",
       "description": "Need Additional Effort to find Another Topic",
       "event_type": "blue",
-      "energy": 100,
+      "energy": -100,
       "IQ": 0
     },
     {
@@ -315,7 +315,7 @@ events = [{
       "name": "Learning Redux",
       "description": "Learned Redux",
       "event_type": "blue",
-      "energy": 400,
+      "energy": -400,
       "IQ": 50
     }
   ]
