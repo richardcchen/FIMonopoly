@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
   }) //end of dice roll listener
 
+  // fetch('http/localhost:3000/events')
+  // .then(response => response.json())
+  // .then(eventData => console.log(eventData))
 
 }) // end of document listener
 

@@ -320,4 +320,4 @@ events = [{
     }
   ]
 
-events.each {|event| Event.create(event)}
+events.each {|event| Event.create(board_id: event.board_id, name: event.name, description: event.description, event_type: event.event_type, energy: event.energy, IQ: event.IQ)}
