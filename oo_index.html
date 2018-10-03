@@ -1,228 +1,38 @@
-<div class="board">
+<!-- <div class="sidenav">
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#clients">Clients</a>
+  <a href="#contact">Contact</a>
+</div> -->
+
+
+
+<div class="header">
+  <a href="#default" class="logo">FLATIRON MONOPOLY</a>
+  <div class="header-right">
+    <a class="active" href="#home">Home</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+  </div>
+</div>
+<div id="infoPage" class="">
+  <div id="diceContainer">
+    <br>
+    <div style="border:4px solid black; width:100px; height:100px text-align:center;padding:0">
+      <h1 id="dice" style="font-size:300%">1</h1>
+      <button id="rollDice">Roll Dice</button>
+      <button id="stopDice">Stop</button>
+    </div>
+    <br><br><br><br>
+  </div>
+  <div id="eventInfo">
+
+  </div>
+</div>
+<div class="board" id="board">
   <div class="col left">
-<<<<<<< HEAD
-    <div class="corner" id=21>
-      <div class="color group4">
-        <div class="title2 clock"></div>
-      </div>
-    </div>
-    <div class="space" id="20">
-      <div class="color group4">
-        <div class="title2 clock">NEW YORK AVENUE</div>
-        <div class="clock clockprice">PRICE $200</div>
-        <div id="community"></div>
-        <div id="communitytext">COMMUNITY CHEST</DIV>
-      </div>
-    </div>
-    <div class="space" id="19">
-      <div class="color group4">
-        <div class="title2 clock">TENNES-SEE AVENUE</div>
-        <div class="clock clockprice">PRICE $180</div>
-      </div>
-    </div>
-    <div class="space" id="18">
-      <div class="group9">
-        <div class="title2 clock">TENNES-SEE AVENUE</div>
-        <div class="clock clockprice">PRICE $180</div>
-      </div>
-    </div>
-    <div class="space" id="17">
-      <div class="color group4">
-        <div class="title2 clock">ST. JAMES PLACE</div>
-        <div class="clock clockprice">PRICE $180</div>
-      </div>
-    </div>
-    <div class="space" id="16">
-      <div class="group9">
-        <div class="title2 clock">ST. JAMES PLACE</div>
-        <div class="clock clockprice">PRICE $180</div>
-      </div>
-    </div>
-    <div class="space" id="15">
-      <div class="color group3">
-        <div class="title2 clock clockfix">VIRGINIA AVENUE</div>
-        <div class="clock clockprice">PRICE $160</div>
-      </div>
-    </div>
-    <div class="space" id="14">
-      <div class="color group3">
-        <div class="title2 clock clockfix">STATES AVENUE</div>
-        <div class="clock clockprice">PRICE $160</div>
-      </div>
-    </div>
-    <div class="space" id="13">
-      <div class="group9">
-        <div class="title2 clock clockfix">STATES AVENUE</div>
-        <div class="clock clockprice">PRICE $160</div>
-      </div>
-    </div>
-    <div class="space" id="12">
-      <div class="color group3">
-        <div class="title2 clock clockfix">ST. CHARLES PLACE</div>
-        <div class="clock clockprice">PRICE $140</div>
-      </div>
-    </div>
-    <div class="corner" id="11"></div>
-  </div>
-  <div class="fix">
-    <div class="row top">
-      <div class="space2" id="22">
-        <div class="color group5"></div>
-        <div class="title">CONNEC-TICUT AVENUE</div>
-        <div class="price2">PRICE $120</div>
-      </div>
-      <div class="space2" id="23">
-        <div class="group9"></div>
-        <div class="title">BALTIC AVENUE</div>
-        <div class="price2">PRICE $60</div>
-      </div>
-      <div class="space2" id="24">
-        <div class="color group5"></div>
-        <div class="title">VERMONT AVENUE</div>
-        <div class="price2">PRICE $100</div>
-      </div>
-      <div class="space2" id="25">
-        <div class="color group5"></div>
-        <div class="title">ORIENTAL AVENUE</div>
-        <div class="price2">PRICE $100</div>
-      </div>
-      <div class="space2" id="26">
-        <div class="group9"></div>
-        <div class="title">ORIENTAL AVENUE</div>
-        <div class="price2">PRICE $100</div>
-      </div>
-      <div class="space2" id="27">
-        <div class="color group6"></div>
-        <div class="title">ORIENTAL AVENUE</div>
-        <div class="price2">PRICE $100</div>
-      </div>
-      <div class="space2" id="28">
-        <div class="color group6"></div>
-        <div class="title">BALTIC AVENUE</div>
-        <div class="price2">PRICE $60</div>
-      </div>
-      <div class="space2" id="29">
-        <div class="group9"></div>
-        <div class="title">BALTIC AVENUE</div>
-        <div class="price2">PRICE $60</div>
-      </div>
-      <div class="space2" id="30">
-        <div class="color group6"></div>
-        <div class="title">MEDITER-RANEAN AVENUE</div>
-        <div class="price">PRICE $60</div>
-      </div>
-    </div>
-    <div class="row bottom">
-      <div class="space2" id="10">
-        <div class="color group2"></div>
-        <div class="title">CONNEC-TICUT AVENUE</div>
-        <div class="price">PRICE $120</div>
-      </div>
-      <div class="space2" id="9">
-        <div class="color group2"></div>
-        <div class="title">VERMONT AVENUE</div>
-        <div class="price2">PRICE $100</div>
-      </div>
-      <div class="space2" id="8">
-        <div class="group9"></div>
-        <div class="title">VERMONT AVENUE</div>
-        <div class="price2">PRICE $100</div>
-      </div>
-      <div class="space2" id="7">
-        <div class="color group2"></div>
-        <div class="title">ORIENTAL AVENUE</div>
-        <div class="price2">PRICE $100</div>
-      </div>
-      <div class="space2" id="6">
-        <div class="group9"></div>
-        <div class="title">ORIENTAL AVENUE</div>
-        <div class="price2">PRICE $100</div>
-      </div>
-      <div class="space2" id="5">
-        <div class="group9"></div>
-        <div class="title">ORIENTAL AVENUE</div>
-        <div class="price2">PRICE $100</div>
-      </div>
-      <div class="space2" id="4">
-        <div class="color group1"></div>
-        <div class="title">BALTIC AVENUE</div>
-        <div class="price2">PRICE $60</div>
-      </div>
-      <div class="space2" id="3">
-        <div class="group9"></div>
-        <div class="title">BALTIC AVENUE</div>
-        <div class="price2">PRICE $60</div>
-      </div>
-      <div class="space2" id="2">
-        <div class="color group1"></div>
-        <div class="title">MEDITER-RANEAN AVENUE</div>
-        <div class="price">PRICE $60</div>
-      </div>
-    </div>
-  </div>
-  <div class="col right">
-    <div class="corner" id="31"></div>
-    <div class="space" id="32">
-      <div class="color group7">
-        <div class="title2 counter">PACIFIC AVENUE</div>
-        <div class="counter counterprice">PRICE $300</div>
-      </div>
-    </div>
-    <div class="space" id="33">
-      <div class="color group7">
-        <div class="title2 counter">NORTH CAROLINA AVENUE</div>
-        <div class="counter counterprice">PRICE $300</div>
-      </div>
-    </div>
-    <div class="space" id="34">
-      <div class="group9">
-        <div class="title2 counter">NORTH CAROLINA AVENUE</div>
-        <div class="counter counterprice">PRICE $300</div>
-      </div>
-    </div>
-    <div class="space" id="35">
-      <div class="color group7">
-        <div class="title2 counter">PENNSYL-VANIA AVENUE</div>
-        <div class="counter counterprice">PRICE $320</div>
-      </div>
-    </div>
-    <div class="space" id="36">
-      <div class="group9">
-        <div class="title2 counter">PENNSYL-VANIA AVENUE</div>
-        <div class="counter counterprice">PRICE $320</div>
-      </div>
-    </div>
-    <div class="space" id="37">
-      <div class="group9">
-        <div class="title2 counter">PENNSYL-VANIA AVENUE</div>
-        <div class="counter counterprice">PRICE $320</div>
-      </div>
-    </div>
-    <div class="space" id="38">
-      <div class="color group8">
-        <div class="title2 counter" id="park">PARK PLACE</div>
-        <div class="counter counterprice">PRICE $350</div>
-      </div>
-    </div>
-    <div class="space" id="39">
-      <div class="group9">
-        <div class="title2 counter" id="park">PARK PLACE</div>
-        <div class="counter counterprice">PRICE $350</div>
-      </div>
-    </div>
-    <div class="space" id="40">
-      <div class="color group8">
-        <div class="title2 counter">BOARDWALK</div>
-        <div class="counter counterprice">PRICE $400</div>
-        <div id="chance"></div>
-        <div id="chancetext">CHANCE</div>
-        <div id="titletext">MONOPOLY</div>
-      </div>
-    </div>
-    <div class="corner" id="1"></div>
-=======
-    <div class="corner" id="11"><div class="image"><img src="assets/img/breaktime.jpg"></div></div>
-    <div class="space" id="20"><div class="color group4"><div class="title2 clock">NEW YORK AVENUE</div><div class="clock clockprice">PRICE $200</div><div id="community"></div><div id="communitytext">COMMUNITY CHEST</DIV></div></div>
+    <div class="corner" id="21"><div class="image"><img src="assets/img/breaktime.jpg"></div></div>
+    <div class="space" id="20"><div class="color group4"><div class="title2 clock">NEW YORK AVENUE</div><div class="clock clockprice">PRICE $200</div><div id="community"></div><div id="communitytext">INSTRUCTOR CALLS</DIV></div></div>
     <div class="space" id="19"><div class="color group4"><div class="title2 clock">TENNES-SEE AVENUE</div><div class="clock clockprice">PRICE $180</div></div></div>
     <div class="space" id="18"><div class="group9"><div class="title2 clock">TENNES-SEE AVENUE</div><div class="clock clockprice2">PRICE $180</div></div></div>
     <div class="space" id="17"><div class="color group4"><div class="title2 clock">ST. JAMES PLACE</div><div class="clock clockprice">PRICE $180</div></div></div>
@@ -268,11 +78,11 @@
     <div class="space" id="37"><div class="group9"><div class="title2 counter">PENNSYL-VANIA AVENUE</div><div class="counter counterprice">PRICE $320</div></div></div>
     <div class="space" id="38"><div class="color group8"><div class="title2 counter" id="park">PARK PLACE</div><div class="counter counterprice">PRICE $350</div></div></div>
     <div class="space" id="39"><div class="group9"><div class="title2 counter" id="park">PARK PLACE</div><div class="counter counterprice">PRICE $350</div></div></div>
-    <div class="space" id="40"><div class="color group8"><div class="title2 counter"></div><div class="counter counterprice">PRICE $400</div><div id="chance"></div><div id="chancetext">CHANCE</div><div id="titletext">MONOPOLY</div></div></div>
+    <div class="space" id="40"><div class="color group8"><div class="title2 counter"></div><div class="counter counterprice">PRICE $400</div><div id="chance"></div><div id="chancetext">PAIRING LAB</div><div id="titletext">FLATIRON MONOPOLY</div></div></div>
     <div class="corner" id="1"><div class="image"><img src="assets/img/sleeping.jpg"></div></div>
->>>>>>> 33235ed75978e2772baf08ddb41d145e1f956e61
   </div>
 </div>
+
 
 <link rel="stylesheet" href="./assets/style.css">
 <script src="./src/index.js"></script>
