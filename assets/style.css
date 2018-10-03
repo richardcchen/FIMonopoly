@@ -360,6 +360,12 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3.5);
   }
 }
 
+#main
+{
+    /* height: 100vh;
+    text-align: center; */
+}
+
 /* #diceContainer{
   overflow:auto;
   border: 1px;

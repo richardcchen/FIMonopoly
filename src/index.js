@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
   store = []
   cornerArray = [1, 11, 21, 31]
-  horizontal = [3, 5, 6, 26, 29];
-  leftSpecial = [13, 16, 18]
-  rightSpecial = [34, 36, 37, 39]
+  horizontal = [5, 6, 26, 29];
+  leftSpecial = [13, 16]
+  rightSpecial = [36, 37, 39]
   topCorner = [21, 31]
   botCorner = [1, 11]
 
@@ -11,9 +11,13 @@ document.addEventListener("DOMContentLoaded", function() {
   leftRow = [12, 14, 15, 17, 19, 20]
   topRow = [22, 24, 25, 27, 28, 30]
   rightRow = [32, 33, 35, 38, 40]
+  feedback = [8, 23]
+  pairingLab = [3, 18, 34]
+
   eventDisplay = document.getElementById('eventInfo')
   boardDisplay = document.getElementById('board')
   diceDisplay = document.getElementById('diceContainer')
+  gameDisplay = document.getElementById('gameStats')
   turn = true
   let user1 = {}
   let diceValue = 0
@@ -96,85 +100,28 @@ document.addEventListener("DOMContentLoaded", function() {
   }) //end of info event listener
 
 
-  // board.addEventListener("load", event => {
-  //   // store.forEach(event => {
-  //   //   if (horizontal.includes(+event.board_id)) {
-  //   //     //debugger
-  //   //     const eventId = document.getElementById(`${event.board_id}`)
-  //   //     eventId.innerHTML += `
-  //   //       <img src="assets/img/download.jpeg", style="width:50px;height:50px">
-  //   //     `
-  //   //   } else if (leftSpecial.includes(+event.board_id)) {
-  //   //     //debugger
-  //   //     const eventId = document.getElementById(`${event.board_id}`)
-  //   //     eventId.innerHTML += `
-  //   //       <img src="assets/img/download.jpeg", style="width:50px;height:50px">
-  //   //     `
-  //   //   } else if (rightSpecial.includes(+event.board_id)) {
-  //   //     //debugger
-  //   //     const eventId = document.getElementById(`${event.board_id}`)
-  //   //     eventId.innerHTML += `
-  //   //       <img src="assets/img/download.jpeg", style="width:50px;height:50px">
-  //   //     `
-  //   //   } else if (bottomRow.includes(+event.board_id)) {
-  //   //     //debugger
-  //   //     const eventId = document.getElementById(`${event.board_id}`)
-  //   //     eventId.children[1].innerHTML += `
-  //   //       <img class="user1" src="assets/img/download.jpeg", style="width:50px;height:50px">
-  //   //     `
-  //   //   } else if (leftRow.includes(+event.board_id)) {
-  //   //     //debugger
-  //   //     const eventId = document.getElementById(`${event.board_id}`)
-  //   //     eventId.children[0].children[0].innerHTML += `
-  //   //             <img class="user1" src="assets/img/download.jpeg", style="width:50px;height:50px">
-  //   //           `
-  //   //   } else if (topRow.includes(+event.board_id)) {
-  //   //     //debugger
-  //   //     const eventId = document.getElementById(`${event.board_id}`)
-  //   //     eventId.children[1].innerHTML += `
-  //   //       <img class="user1" src="assets/img/download.jpeg", style="width:50px;height:50px">
-  //   //     `
-  //   //   } else if (rightRow.includes(+event.board_id)) {
-  //   //     //debugger
-  //   //     const eventId = document.getElementById(`${event.board_id}`)
-  //   //     eventId.children[0].children[0].innerHTML += `
-  //   //             <img class="user1" src="assets/img/download.jpeg", style="width:50px;height:50px">
-  //   //           `
-  //   //   }
-  //   //   else if (topCorner.includes(+event.board_id)) {
-  //   //     const eventId = document.getElementById(`${event.board_id}`)
-  //   //     eventId.innerHTML +=`<img class="user1" src="assets/img/download.jpeg", style="width:50px;height:50px;top:50px">
-  //   //     `
-  //   //   }
-  //   //   else if (botCorner.includes(+event.board_id)) {
-  //   //     const eventId = document.getElementById(`${event.board_id}`)
-  //   //     eventId.innerHTML +=`<img class="user1" src="assets/img/download.jpeg", style="width:50px;height:50px;bottom:50px">
-  //   //     `
-  //   //   }
-  //   //
-  //   // }) //end of forEach
-  // }) //end of board listener
-
-
-
   function aniDice() {
     MyVar = setInterval(rolldice, 10)
   }
 
   function rolldice() {
     var ranNum = Math.floor(1 + Math.random() * 6);
+    // ranNum = 30
     document.getElementById("dice").innerHTML = ranNum;
   }
 
   function stopDice() {
     clearInterval(MyVar)
     if (turn === true) {
+      console.log(`user1: ${user1.location}`);
       document.querySelector(`[data-id="user1"]`).remove()
     }
     if (turn === false) {
+      console.log(`user2:${user2.location}`);
       document.querySelector(`[data-id="user2"]`).remove()
     }
     diceValue = +event.target.parentNode.children[0].innerText
+    console.log(diceValue, `turn:${turn}`);
   }
 
   diceDisplay.addEventListener("click", event => {
@@ -186,15 +133,46 @@ document.addEventListener("DOMContentLoaded", function() {
       } else if (event.target.id === "stopDice") {
         stopDice()
         if (turn === true) {
-          user1.location += diceValue
+          user1.location = (user1.location + diceValue)%40
+          if (user1.location === 31){
+            alert("Oh No! You FAILED the code challenge, you have to go home early")
+            user.location = 11
+          }
           displayFunction(user1)
+          console.log(`user1 after: ${user1.location}`);
           turn = false
           turnNum += 1
+          console.log(`energy: ${store[user1.location-1].energy}`)
+          user1.energy += store[user1.location-1].energy
+          user1.iq += store[user1.location-1].IQ
+          gameDisplay.innerHTML = `
+            <h2>User1 Energy Left: ${user1.energy}</h2>
+            <h2>User1 IQ Gained: ${user1.iq}</h2>
+            <h2>User2 Energy Left: ${user2.energy}</h2>
+            <h2>User2 IQ Gained: ${user2.iq}</h2>
+          `
+          diceValue=0
+
         } else {
-          user2.location += diceValue
+          user1.location = (user1.location + diceValue)%40
           displayFunction(user2)
+          if (user1.location === 31){
+            alert("Oh No! You FAILED the code challenge, you have to go home early")
+            user.location = 11
+          }
+          console.log(`user2 after: ${user2.location}`)
           turn = true
           turnNum += 1
+          console.log(`energy: ${store[user2.location-1].energy}`)
+          user2.energy += store[user2.location-1].energy
+          user2.iq += store[user2.location-1].IQ
+          gameDisplay.innerHTML = `
+            <h2>User1 Energy Left: ${user1.energy}</h2>
+            <h2>User1 IQ Gained: ${user1.iq}</h2>
+            <h2>User2 Energy Left: ${user2.energy}</h2>
+            <h2>User2 IQ Gained: ${user2.iq}</h2>
+          `
+          diceValue = 0
         }
         // setTimeout(function() {
         //   for (let i = user1.location; i < user1.location + diceValue; i++) {
