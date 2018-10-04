@@ -18,6 +18,10 @@ document.addEventListener("DOMContentLoaded", function() {
   boardDisplay = document.getElementById('board')
   diceDisplay = document.getElementById('diceContainer')
   gameDisplay = document.getElementById('gameStats')
+  user1Display = document.getElementById('user1stats')
+  user2Display = document.getElementById('user2stats')
+  turnDisplay = document.getElementById('turn')
+
   turn = true
   let user1 = {}
   let diceValue = 0
@@ -82,22 +86,38 @@ document.addEventListener("DOMContentLoaded", function() {
       const eventId2 = document.getElementById(`${user2.location}`)
       eventId2.innerHTML += `<img data-id="user2" class="user2" src="${user2.img}", style="width:50px;height:50px;bottom:50px">
       `
+      turnDisplay.innerHTML = `
+        <h1>Player 1 Rolls<h2>
+      `
     })
 
 
 
   board.addEventListener("click", event => {
     if (event.target.id) {
-      const clickObj = store[event.target.id]
+      const clickObj = store[event.target.id-1]
       console.log(clickObj);
       eventDisplay.innerHTML = `
-        <h2>Card Info</h2>
         <p>${clickObj.name}</p>
-
+        <p>${clickObj.description}</p>
+        <p>${clickObj.energy} energy</p>
+        <p>${clickObj.IQ} IQ</p>
       `
     }
-
   }) //end of info event listener
+
+  gameDisplay.addEventListener("click", event => {
+    if (event.target.id === "user1stats"){
+      eventDisplay.innerHTML = `
+        <p>add user 1 properties here </p>
+      `
+    }
+    else if (event.target.id === "user2stats"){
+      eventDisplay.innerHTML = `
+        <p>add user 2 properties here </p>
+      `
+    }
+  }) //end of game listener
 
 
   function aniDice() {
@@ -145,13 +165,25 @@ document.addEventListener("DOMContentLoaded", function() {
           console.log(`energy: ${store[user1.location-1].energy}`)
           user1.energy += store[user1.location-1].energy
           user1.iq += store[user1.location-1].IQ
-          gameDisplay.innerHTML = `
-            <h2>User1 Energy Left: ${user1.energy}</h2>
-            <h2>User1 IQ Gained: ${user1.iq}</h2>
-            <h2>User2 Energy Left: ${user2.energy}</h2>
-            <h2>User2 IQ Gained: ${user2.iq}</h2>
+          user1Display.innerHTML = `
+            <h2>Energy Left: ${user1.energy}</h2>
+            <h2>IQ Gained: ${user1.iq}</h2>
+          `
+          user2Display.innerHTML =
+          `
+            <h2>Energy Left: ${user2.energy}</h2>
+            <h2>IQ Gained: ${user2.iq}</h2>
           `
           diceValue=0
+          turnDisplay.innerHTML = `
+            <h1>Player 2 Rolls<h2>
+          `
+          eventDisplay.innerHTML = `
+            <p>${store[user1.location-1].name}</p>
+            <p>${store[user1.location-1].description}</p>
+            <p>${store[user1.location-1].energy} energy</p>
+            <p>${store[user1.location-1].IQ} IQ</p>
+          `
 
         } else {
           user1.location = (user1.location + diceValue)%40
@@ -166,13 +198,25 @@ document.addEventListener("DOMContentLoaded", function() {
           console.log(`energy: ${store[user2.location-1].energy}`)
           user2.energy += store[user2.location-1].energy
           user2.iq += store[user2.location-1].IQ
-          gameDisplay.innerHTML = `
-            <h2>User1 Energy Left: ${user1.energy}</h2>
-            <h2>User1 IQ Gained: ${user1.iq}</h2>
-            <h2>User2 Energy Left: ${user2.energy}</h2>
-            <h2>User2 IQ Gained: ${user2.iq}</h2>
+          user1Display.innerHTML = `
+            <h2>Energy Left: ${user1.energy}</h2>
+            <h2>IQ Gained: ${user1.iq}</h2>
+          `
+          user2Display.innerHTML =
+          `
+            <h2>Energy Left: ${user2.energy}</h2>
+            <h2>IQ Gained: ${user2.iq}</h2>
           `
           diceValue = 0
+          turnDisplay.innerHTML = `
+            <h1>Player 1 Rolls<h2>
+          `
+          eventDisplay.innerHTML = `
+            <p>${store[user2.location-1].name}</p>
+            <p>${store[user2.location-1].description}</p>
+            <p>${store[user2.location-1].energy} energy</p>
+            <p>${store[user2.location-1].IQ} IQ</p>
+          `
         }
         // setTimeout(function() {
         //   for (let i = user1.location; i < user1.location + diceValue; i++) {
