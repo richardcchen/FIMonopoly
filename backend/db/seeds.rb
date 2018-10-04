@@ -19,7 +19,7 @@ events = [{
       "name": "Instructor Feedback",
       "description": "A instructor calls you for feedback, is it good...or bad???",
       "event_type": "chest",
-      "energy": +1000,
+      "energy": 0,
       "IQ": 0
     },
     {
@@ -43,8 +43,8 @@ events = [{
       "name": "Jon 1 on 1",
       "description": "John called you for an 1 on 1. Got a bug? He will debug",
       "event_type": "railroad",
-      "energy": +200,
-      "IQ": 0
+      "energy": -100,
+      "IQ": 10
     },
     {
       "board_id": 7,
@@ -56,7 +56,7 @@ events = [{
     },
     {
       "board_id": 8,
-      "name": "Random Event",
+      "name": "Pairing Lab",
       "description": "Pairing Lab! Is this gonna be a good experience?",
       "event_type": "chance",
       "energy": 0,
@@ -81,7 +81,7 @@ events = [{
     {
       "board_id": 11,
       "name": "Home Studying",
-      "description": "Programmming is more fun than hitting up a bar, this is recreation",
+      "description": "Programmming is more fun than hitting up a bar",
       "event_type": "jail",
       "energy": -200,
       "IQ": 0
@@ -123,8 +123,8 @@ events = [{
       "name": "Garry 1 on 1",
       "description": "You better fill out the attendance or GerrBear gonna give you a scare",
       "event_type": "railroad",
-      "energy": -200,
-      "IQ": 0
+      "energy": -100,
+      "IQ": 10
     },
     {
       "board_id": 17,
@@ -139,7 +139,7 @@ events = [{
       "name": "Instructor Feedback",
       "description": "A instructor calls you for feedback, is it good...or bad???",
       "event_type": "chest",
-      "energy": +1000,
+      "energy": 0,
       "IQ": 0
     },
     {
@@ -203,8 +203,8 @@ events = [{
       "name": "Wangtron has entered the building",
       "description": "Yes, he just walked in wearing that costume",
       "event_type": "railroad",
-      "energy": +200,
-      "IQ": 0
+      "energy": -100,
+      "IQ": 10
     },
     {
       "board_id": 27,
@@ -212,7 +212,7 @@ events = [{
       "description": "This 25 min video is so long...and helpful",
       "event_type": "yellow",
       "energy": -260,
-      "IQ": 0
+      "IQ": 20
     },
     {
       "board_id": 28,
@@ -243,7 +243,7 @@ events = [{
       "name": "Failed Code Challenge",
       "description": "Go home. Take a rest. I know your gonna come back twice as hard",
       "event_type": "go to jail",
-      "energy": -200,
+      "energy": -100,
       "IQ": 0
     },
     {
@@ -267,7 +267,7 @@ events = [{
       "name": "Instructor Feedback",
       "description": "A instructor calls you for feedback, is it good...or bad???",
       "event_type": "chest",
-      "energy": +1000,
+      "energy": 0,
       "IQ": 0
     },
     {
@@ -281,18 +281,18 @@ events = [{
     {
       "board_id": 36,
       "name": "Andrew 1 on 1",
-      "description": "Prepare to learn",
+      "description": "Prepare to learn!",
       "event_type": "railroad",
-      "energy": -200,
-      "IQ": 0
+      "energy": -100,
+      "IQ": 10
     },
     {
       "board_id": 37,
       "name": "Pairing Lab",
       "description": "Pairing Lab! Is this gonna be a good experience?",
       "event_type": "chance",
-      "energy": -100,
-      "IQ": 2
+      "energy": 0,
+      "IQ": 0
     },
     {
       "board_id": 38,

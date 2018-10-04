@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
   store = []
   cornerArray = [1, 11, 21, 31]
-  horizontal = [5, 6, 26, 29];
-  leftSpecial = [13, 16]
-  rightSpecial = [36, 37, 39]
+  horizontal = [5, 29];
+  leftSpecial = [13]
+  rightSpecial = [39]
   topCorner = [21, 31]
   botCorner = [1, 11]
 
@@ -11,9 +11,13 @@ document.addEventListener("DOMContentLoaded", function() {
   leftRow = [12, 14, 15, 17, 19, 20]
   topRow = [22, 24, 25, 27, 28, 30]
   rightRow = [32, 33, 35, 38, 40]
-  feedback = [8, 23]
-  pairingLab = [3, 18, 34]
+  feedback = [6, 8, 23, 26, 36, 37]
+  pairingLab = [3, 18, 34] //8, 23, 37
+  pictures = [1, 3, 6, 8, 11, 16, 18, 21, 23, 26, 31, 34, 36, 37]
+  utilities = [13,29]
 
+  pair = [8, 23, 37]
+  instructor = [3, 18, 34]
   eventDisplay = document.getElementById('eventInfo')
   boardDisplay = document.getElementById('board')
   diceDisplay = document.getElementById('diceContainer')
@@ -26,19 +30,22 @@ document.addEventListener("DOMContentLoaded", function() {
   let user1 = {}
   let diceValue = 0
   let turnNum = 0;
+  let endGame = 50
   user1 = {
     name: "user1",
     img: "assets/img/dog.png",
     energy: 1000,
     iq: 0,
-    location: 1
+    location: 1,
+    events: {}
   }
   user2 = {
     name: "user2",
     img: "assets/img/monopoly-iron-piece.jpg",
     energy: 1000,
     iq: 0,
-    location: 1
+    location: 1,
+    events: {}
   }
 
 
@@ -81,10 +88,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }) //end of then statement
     .then(() => {
       const eventId = document.getElementById(`${user1.location}`)
-      eventId.innerHTML += `<img data-id="user1" class="user1" src="${user1.img}", style="width:50px;height:50px;bottom:50px">
+      eventId.innerHTML += `<img data-id="user1" class="user1" src="${user1.img}", style="width:40%;height:40%;bottom:50px">
       `
       const eventId2 = document.getElementById(`${user2.location}`)
-      eventId2.innerHTML += `<img data-id="user2" class="user2" src="${user2.img}", style="width:50px;height:50px;bottom:50px">
+      eventId2.innerHTML += `<img data-id="user2" class="user2" src="${user2.img}", style="width:40%;height:40%;bottom:50px">
       `
       turnDisplay.innerHTML = `
         <h1>Player 1 Rolls<h2>
@@ -94,29 +101,55 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
   board.addEventListener("click", event => {
+    console.log(event.target);
     if (event.target.id) {
-      const clickObj = store[event.target.id-1]
-      console.log(clickObj);
+      const clickObj = store[event.target.id - 1]
       eventDisplay.innerHTML = `
         <p>${clickObj.name}</p>
         <p>${clickObj.description}</p>
-        <p>${clickObj.energy} energy</p>
-        <p>${clickObj.IQ} IQ</p>
+        <p>Energy Cost: ${clickObj.energy}</p>
+        <p>IQ: ${clickObj.IQ}</p>
+      `
+    }
+    else if (event.target.parentNode.parentNode.id) {
+      const clickObj = store[event.target.parentNode.parentNode.id - 1]
+      debugger
+      eventDisplay.innerHTML = `
+        <p>${clickObj.name}</p>
+        <p>${clickObj.description}</p>
+        <p>Energy Cost: ${clickObj.energy}</p>
+        <p>IQ: ${clickObj.IQ}</p>
+      `
+    }
+    else if (event.target.parentNode.parentNode.parentNode.id) {
+      const clickObj = store[event.target.parentNode.parentNode.parentNode.id - 1]
+      eventDisplay.innerHTML = `
+        <p>${clickObj.name}</p>
+        <p>${clickObj.description}</p>
+        <p>Energy Cost: ${clickObj.energy}</p>
+        <p>IQ: ${clickObj.IQ}</p>
       `
     }
   }) //end of info event listener
 
   gameDisplay.addEventListener("click", event => {
-    if (event.target.id === "user1stats"){
-      eventDisplay.innerHTML = `
-        <p>add user 1 properties here </p>
+    if (event.target.id === "user1stats") {
+      eventDisplay.innerHTML = ""
+      for (const location in user1.events) {
+        //debugger
+        eventDisplay.innerHTML += `
+        <p>${user1.events[location].name}</p>
       `
-    }
-    else if (event.target.id === "user2stats"){
-      eventDisplay.innerHTML = `
-        <p>add user 2 properties here </p>
+      }
+    } else if (event.target.id === "user2stats") {
+      eventDisplay.innerHTML = ""
+      for (const location in user2.events) {
+        //debugger
+        eventDisplay.innerHTML += `
+        <p>${user2.events[location].name}</p>
       `
-    }
+      }
+    } // end of else
   }) //end of game listener
 
 
@@ -125,182 +158,253 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function rolldice() {
-    var ranNum = Math.floor(1 + Math.random() * 6);
-    // ranNum = 30
+    // var ranNum = Math.floor(1 + Math.random() * 12);
+    ranNum = 1
     document.getElementById("dice").innerHTML = ranNum;
   }
 
   function stopDice() {
     clearInterval(MyVar)
     if (turn === true) {
-      console.log(`user1: ${user1.location}`);
       document.querySelector(`[data-id="user1"]`).remove()
     }
     if (turn === false) {
-      console.log(`user2:${user2.location}`);
       document.querySelector(`[data-id="user2"]`).remove()
     }
     diceValue = +event.target.parentNode.children[0].innerText
-    console.log(diceValue, `turn:${turn}`);
   }
 
   diceDisplay.addEventListener("click", event => {
     // function user1Turn() {
     //   alert("It is User1's turn. Please roll")
-    if (turnNum < 10) {
+    if (turnNum < endGame) {
       if (event.target.id === "rollDice") {
         aniDice()
       } else if (event.target.id === "stopDice") {
         stopDice()
+        //PLAYER 1 GOES
         if (turn === true) {
-          user1.location = (user1.location + diceValue)%40
-          if (user1.location === 31){
-            alert("Oh No! You FAILED the code challenge, you have to go home early")
-            user.location = 11
-          }
+          user1.location = (user1.location + diceValue) % 40
+          fail(user1, user1.location)
+          instruction(user1)
+          pairP(user1)
+          utility(user1, diceValue)
           displayFunction(user1)
-          console.log(`user1 after: ${user1.location}`);
           turn = false
           turnNum += 1
-          console.log(`energy: ${store[user1.location-1].energy}`)
-          user1.energy += store[user1.location-1].energy
-          user1.iq += store[user1.location-1].IQ
+          user1.energy += store[user1.location - 1].energy
+          user1.iq += store[user1.location - 1].IQ
+          duplicate(user1, store[user1.location - 1])
+          user1.events[store[user1.location - 1].board_id] = store[user1.location - 1]
           user1Display.innerHTML = `
             <h2>Energy Left: ${user1.energy}</h2>
             <h2>IQ Gained: ${user1.iq}</h2>
           `
           user2Display.innerHTML =
-          `
-            <h2>Energy Left: ${user2.energy}</h2>
-            <h2>IQ Gained: ${user2.iq}</h2>
-          `
-          diceValue=0
-          turnDisplay.innerHTML = `
-            <h1>Player 2 Rolls<h2>
-          `
-          eventDisplay.innerHTML = `
-            <p>${store[user1.location-1].name}</p>
-            <p>${store[user1.location-1].description}</p>
-            <p>${store[user1.location-1].energy} energy</p>
-            <p>${store[user1.location-1].IQ} IQ</p>
-          `
-
-        } else {
-          user1.location = (user1.location + diceValue)%40
-          displayFunction(user2)
-          if (user1.location === 31){
-            alert("Oh No! You FAILED the code challenge, you have to go home early")
-            user.location = 11
-          }
-          console.log(`user2 after: ${user2.location}`)
-          turn = true
-          turnNum += 1
-          console.log(`energy: ${store[user2.location-1].energy}`)
-          user2.energy += store[user2.location-1].energy
-          user2.iq += store[user2.location-1].IQ
-          user1Display.innerHTML = `
-            <h2>Energy Left: ${user1.energy}</h2>
-            <h2>IQ Gained: ${user1.iq}</h2>
-          `
-          user2Display.innerHTML =
-          `
+            `
             <h2>Energy Left: ${user2.energy}</h2>
             <h2>IQ Gained: ${user2.iq}</h2>
           `
           diceValue = 0
           turnDisplay.innerHTML = `
-            <h1>Player 1 Rolls<h2>
+            <h2 style="background: #EC5E98">Player 2 Rolls<h2>
+            <h3>turn: ${turnNum}</h3>
+          `
+          eventDisplay.innerHTML = `
+            <p>${store[user1.location-1].name}</p>
+            <p>${store[user1.location-1].description}</p>
+            <p>Energy Cost: ${store[user1.location-1].energy}</p>
+            <p>IQ: ${store[user1.location-1].IQ}</p>
+          `
+          //PLAYER 2 GOES
+        } else {
+          user2.location = (user2.location + diceValue) % 40
+          fail(user2, user2.location)
+          instruction(user2)
+          pairP(user2)
+          utility(user2, diceValue)
+          displayFunction(user2)
+          turn = true
+          turnNum += 1
+          user2.energy += store[user2.location - 1].energy
+          user2.iq += store[user2.location - 1].IQ
+          duplicate(user2, store[user2.location - 1])
+          user2.events[store[user2.location - 1].board_id] = store[user2.location - 1]
+          user2Display.innerHTML = `
+            <h2>Energy Left: ${user2.energy}</h2>
+            <h2>IQ Gained: ${user2.iq}</h2>
+          `
+          user2Display.innerHTML =
+            `
+            <h2>Energy Left: ${user2.energy}</h2>
+            <h2>IQ Gained: ${user2.iq}</h2>
+          `
+          diceValue = 0
+          turnDisplay.innerHTML = `
+          <h2 style="background: #EAFA1D">Player 1 Rolls<h2>
+          <h3>turn: ${turnNum}</h3>
           `
           eventDisplay.innerHTML = `
             <p>${store[user2.location-1].name}</p>
             <p>${store[user2.location-1].description}</p>
-            <p>${store[user2.location-1].energy} energy</p>
-            <p>${store[user2.location-1].IQ} IQ</p>
+            <p>Energy Cost:${store[user2.location-1].energy}</p>
+            <p>IQ: ${store[user2.location-1].IQ}</p>
           `
         }
-        // setTimeout(function() {
-        //   for (let i = user1.location; i < user1.location + diceValue; i++) {
-        //     //document.querySelector(`[data-id="user1"]`).remove()
-        //     console.log(i);
-        //     user1.location = i
-        //     displayFunction(user1, i);
-        //   }
-        // }, 1000) // end of setTimeout
       }
+    } else {
+      alert("Game Over!!!")
     }
-    // user1.location = futureValue
   }) //end of dice listener
-  // } //end of user1Turn
-
-  function user2Turn() {
-    alert("It is User2's turn. Please roll")
-    diceDisplay.addEventListener("click", event => {
-      if (event.target.id === "rollDice") {
-        aniDice()
-      } else if (event.target.id === "stopDice") {
-        stopDice()
-        user2.location += diceValue
-        // setTimeout(function() {
-        //   for (let i = user1.location; i < user1.location + diceValue; i++) {
-        //     //document.querySelector(`[data-id="user1"]`).remove()
-        //     console.log(i);
-        //     user1.location = i
-        //     displayFunction(user1, i);
-        //   }
-        // }, 1000) // end of setTimeout
-        displayFunction(user2)
-        turn = true
-      }
-      // user1.location = futureValue
-    }) //end of dice listener
-  } //end of user1Turn
 
 
   function displayFunction(userObj) {
     const eventId = document.getElementById(`${userObj.location}`)
     if (horizontal.includes(userObj.location)) {
       eventId.innerHTML += `
-        <img data-id="${userObj.name}" src="${userObj.img}", style="width:50px;height:50px">
+        <img data-id="${userObj.name}" class=${userObj.name} src="${userObj.img}" style="width:40%;height:40%">
       `
     } else if (leftSpecial.includes(userObj.location)) {
       //debugger
       eventId.innerHTML += `
-        <img data-id="${userObj.name}" src="${userObj.img}", style="width:50px;height:50px">
+        <img data-id="${userObj.name}" class=${userObj.name} src="${userObj.img}" style="width:40%;height:40%">
       `
     } else if (rightSpecial.includes(userObj.location)) {
       //debugger
       eventId.innerHTML += `
-        <img data-id="${userObj.name}" src="${userObj.img}", style="width:50px;height:50px">
+        <img data-id="${userObj.name}" class=${userObj.name} src="${userObj.img}" style="width:40%;height:40%">
       `
     } else if (bottomRow.includes(userObj.location)) {
-      //debugger
       eventId.children[1].innerHTML += `
-        <img data-id="${userObj.name}" class="user1" src="${userObj.img}", style="width:50px;height:50px">
+        <img data-id="${userObj.name}" class=${userObj.name} src="${userObj.img}", style="width:40%;height:40%">
       `
     } else if (leftRow.includes(userObj.location)) {
       //debugger
       eventId.children[0].children[0].innerHTML += `
-              <img data-id="${userObj.name}" class="user1" src="${userObj.img}", style="width:50px;height:50px">
+              <img data-id="${userObj.name}" class=${userObj.name} src="${userObj.img}", style="width:40%;height:40%">
             `
     } else if (topRow.includes(userObj.location)) {
       //debugger
       eventId.children[1].innerHTML += `
-        <img data-id="${userObj.name}" class="user1" src="${userObj.img}", style="width:50px;height:50px">
+        <img data-id="${userObj.name}" class=${userObj.name} src="${userObj.img}", style="width:40%;height:40%">
       `
     } else if (rightRow.includes(userObj.location)) {
       //debugger
       eventId.children[0].children[0].innerHTML += `
-              <img data-id="${userObj.name}" class="user1" src="${userObj.img}", style="width:50px;height:50px">
+              <img data-id="${userObj.name}" class=${userObj.name} src="${userObj.img}", style="width:40%;height:40%">
             `
     } else if (topCorner.includes(userObj.location)) {
-      eventId.innerHTML += `<img data-id="${userObj.name}" class="user1" src="${userObj.img}", style="width:50px;height:50px;top:50px">
+      eventId.innerHTML += `<img data-id="${userObj.name}" class=${userObj.name} src="${userObj.img}", style="width:40%;height:40%;top:50px">
       `
     } else if (botCorner.includes(userObj.location)) {
-      eventId.innerHTML += `<img data-id="${userObj.name}" class="user1" src="${userObj.img}", style="width:50px;height:50px;bottom:50px">
+      eventId.innerHTML += `<img data-id="${userObj.name}" class=${userObj.name} src="${userObj.img}", style="width:40%;height:40%;bottom:50px">
+      `
+    } else if (pictures.includes(userObj.location)) {
+      eventId.innerHTML += `<img data-id="${userObj.name}" class=${userObj.name} src="${userObj.img}", style="width:40%;height:40%;bottom:50px">
       `
     }
   }
 
+  function duplicate(user, location) {
+    if (Object.keys(user.events).includes(location.board_id.toString())) {
+      alert("Sorry you already gained knowledge on this square!")
+      user.energy -= store[user.location - 1].energy
+      user.iq -= store[user.location - 1].IQ
+    }
+  }
+
+  function fail(user, location){
+    if (location === 31){
+      alert("Oh No! You Failed the code challenge, you have to go home early (Move back to the Go Home Early space)")
+      user.location = 11
+    }
+  }
+
+  function instruction(user){
+    if (instructor.includes(user.location)){
+      random = 1+ Math.floor(Math.random() * 31)
+      if (Math.floor(Math.random() * 2) == 0){
+        alert(`Good news, your feedback was great! You earned ${random} IQ points`)
+        user.iq += random
+      } else {
+        alert(`Bad news. Instructor says you have been slacking. Lose ${random} IQ points`)
+        user.iq -= random
+      }
+    }
+  }
+
+  function pairP(user){
+    if (pair.includes(user.location)){
+      random = 1+Math.floor(Math.random() * 11)
+      if (Math.floor(Math.random() * 2) == 0){
+        alert(`Your pair lab went great! You earned ${random} IQ points`)
+        user.iq += random
+      } else {
+        alert(`Your pair lab sucked. Lose ${random} IQ points`)
+        user.iq -= random
+      }
+    }
+  }
+
+  function utility(user, diceValue){
+    if (utilities.includes(user.location)){
+      if (user.location === 13){
+        alert(`You learned SQL, but how well did you absorb it? You earn double your roll in IQ points(${diceValue*2})`)
+        user.iq += (diceValue*2)
+      } else {
+        alert(`You just had your FSP, but did it go well? You earn double your roll in IQ points(${diceValue*2})`)
+        user.iq += (diceValue*2)
+      }
+    }
+  }
+
+  function displayFunction2(userObj) {
+    const eventId = document.getElementById(`${userObj.location}`)
+    if (horizontal.includes(userObj.location)) {
+      eventId.innerHTML += ` <div class="left" >
+        <img data-id="${userObj.name}" class=${userObj.name} src="${userObj.img}" style="width:40%;height:40%">
+        </div>
+      `
+    } else if (leftSpecial.includes(userObj.location)) {
+      //debugger
+      eventId.innerHTML += `
+        <img data-id="${userObj.name}" class=${userObj.name} src="${userObj.img}" style="width:40%;height:40%">
+      `
+    } else if (rightSpecial.includes(userObj.location)) {
+      //debugger
+      eventId.innerHTML += `
+        <img data-id="${userObj.name}" class=${userObj.name} src="${userObj.img}" style="width:40%;height:40%">
+      `
+    } else if (bottomRow.includes(userObj.location)) {
+      //debugger
+      eventId.innerHTML += `<img data-id="${userObj.name}" class=${userObj.name}  src="${userObj.img}" style="width:40%;height:40%">
+      `
+    } else if (leftRow.includes(userObj.location)) {
+      //debugger
+      eventId.children[0].children[0].innerHTML += `
+              <img data-id="${userObj.name}" class=${userObj.name} src="${userObj.img}", style="width:40%;height:40%">
+            `
+    } else if (topRow.includes(userObj.location)) {
+      //debugger
+      eventId.children[1].innerHTML += `
+        <img data-id="${userObj.name}" class=${userObj.name} src="${userObj.img}", style="width:40%;height:40%">
+      `
+    } else if (rightRow.includes(userObj.location)) {
+      //debugger
+      eventId.children[0].children[0].innerHTML += `
+              <img data-id="${userObj.name}" class=${userObj.name} src="${userObj.img}", style="width:40%;height:40%">
+            `
+    } else if (topCorner.includes(userObj.location)) {
+      eventId.innerHTML += `<img data-id="${userObj.name}" class=${userObj.name} src="${userObj.img}", style="width:40%;height:40%;top:50px">
+      `
+    } else if (botCorner.includes(userObj.location)) {
+      eventId.innerHTML += `<img data-id="${userObj.name}" class=${userObj.name} src="${userObj.img}", style="width:40%;height:40%;bottom:50px">
+      `
+    } else if (pictures.includes(userObj.location)) {
+      eventId.innerHTML += `<img data-id="${userObj.name}" class=${userObj.name} src="${userObj.img}", style="width:40%;height:40%;bottom:50px">
+      `
+    }
+  }
 
 
 }) // end of document listener

@@ -27,6 +27,7 @@ img {
   margin-right: auto;
   width: 100%;
   height: 84%;
+  position: relative
 }
 
 .board {
@@ -192,6 +193,7 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
   display: block;
   margin-left: auto;
   margin-right: auto;
+  text-align: left;
 }
 
 .user2 {
@@ -200,6 +202,7 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
   display: block;
   margin-left: auto;
   margin-right: auto;
+  text-align: right;
 }
 
 #park {
@@ -319,4 +322,27 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3.5);
   background:#0ED9EA;
   text-align: left;
   font-size: 80%
+}
+
+.columnSm{
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.columnSm2{
+  float: right;
+  width: 50%;
+  padding: 10px;
+}
+
+.rowSm:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.container5{
+  display:flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
 }
