@@ -1,7 +1,7 @@
 events = [{
       "board_id": 1,
-      "name": "GO",
-      "description": "Game Starts",
+      "name": "Start of New Day",
+      "description": "You got an awesome bed, you just got 1000 more energy points",
       "event_type": "go",
       "energy": +1000,
       "IQ": 0
@@ -9,7 +9,7 @@ events = [{
     {
       "board_id": 2,
       "name": "Prework",
-      "description": "Finished Prework",
+      "description": "You finished all your Prework! Hasketball is easy now",
       "event_type": "purple",
       "energy": -60,
       "IQ": 2
@@ -17,7 +17,7 @@ events = [{
     {
       "board_id": 3,
       "name": "Instructor Feedback",
-      "description": "Got feedback for how to study",
+      "description": "A instructor calls you for feedback, is it good...or bad???",
       "event_type": "chest",
       "energy": +1000,
       "IQ": 0
@@ -25,15 +25,15 @@ events = [{
     {
       "board_id": 4,
       "name": "Introduction to OO",
-      "description": "Learned Object Orientation",
+      "description": "You Learned Object Orientation, you're an object, I'm an object, we are all objects",
       "event_type": "purple",
       "energy": -60,
       "IQ": 4
     },
     {
       "board_id": 5,
-      "name": "You became sick",
-      "description": "Take a Rest at Home",
+      "name": "Your SICK",
+      "description": "You are infected! Please don't come to school and spread your patient zero germs",
       "event_type": "income tax",
       "energy": -200,
       "IQ": 0
@@ -41,7 +41,7 @@ events = [{
     {
       "board_id": 6,
       "name": "Jon 1 on 1",
-      "description": "Got advices from Jon",
+      "description": "John called you for an 1 on 1. Got a bug? He will debug",
       "event_type": "railroad",
       "energy": +200,
       "IQ": 0
@@ -49,15 +49,15 @@ events = [{
     {
       "board_id": 7,
       "name": "Ruby One to Many",
-      "description": "Learned One to Many Relationship",
+      "description": "Learned One to Many Relationships",
       "event_type": "light blue",
       "energy": -100,
       "IQ": 6
     },
     {
       "board_id": 8,
-      "name": "Rendom Event",
-      "description": "Nobody knows the future until hit this grid",
+      "name": "Random Event",
+      "description": "Pairing Lab! Is this gonna be a good experience?",
       "event_type": "chance",
       "energy": 0,
       "IQ": 0
@@ -73,15 +73,15 @@ events = [{
     {
       "board_id": 10,
       "name": "ActiveRecord Associations",
-      "description": "Learned ActiveRecord",
+      "description": "Learned ActiveRecord, forgot everything else about mod1",
       "event_type": "light blue",
       "energy": -120,
       "IQ": 8
     },
     {
       "board_id": 11,
-      "name": "Study for Code Challenge at Home",
-      "description": "Review all material in within the Mod",
+      "name": "Home Studying",
+      "description": "Programmming is more fun than hitting up a bar, this is recreation",
       "event_type": "jail",
       "energy": -200,
       "IQ": 0
@@ -89,7 +89,7 @@ events = [{
     {
       "board_id": 12,
       "name": "Intro to Sinatra",
-      "description": "Learned the Basis of Sinatra",
+      "description": "Does anyone remember anything about Sinatra?",
       "event_type": "pink",
       "energy": -130,
       "IQ": 10
@@ -97,7 +97,7 @@ events = [{
     {
       "board_id": 13,
       "name": "SQL",
-      "description": "Get more Energy",
+      "description": "I know, I know, SQL is boring",
       "event_type": "electric company",
       "energy": -150,
       "IQ": 0
@@ -105,7 +105,7 @@ events = [{
     {
       "board_id": 14,
       "name": "Sinatra Forms",
-      "description": "Learned Sinatra Forms",
+      "description": "Uhhhhgggg, more Sinatra. ",
       "event_type": "pink",
       "energy": -140,
       "IQ": 10
@@ -113,7 +113,7 @@ events = [{
     {
       "board_id": 15,
       "name": "Sinatra Full CRUD",
-      "description": "Learn Sinatra Full CRUD",
+      "description": "Learn Sinatra Full CRUD, there is so much code on the screen",
       "event_type": "pink",
       "energy": -160,
       "IQ": 12
@@ -121,7 +121,7 @@ events = [{
     {
       "board_id": 16,
       "name": "Garry 1 on 1",
-      "description": "Got advices from Garry",
+      "description": "You better fill out the attendance or GerrBear gonna give you a scare",
       "event_type": "railroad",
       "energy": -200,
       "IQ": 0
@@ -129,7 +129,7 @@ events = [{
     {
       "board_id": 17,
       "name": "Intro to Rails",
-      "description": "Learn the Basis of Rails",
+      "description": "Omg, why did I waste so much time with Sinatra",
       "event_type": "orange",
       "energy": -160,
       "IQ": 14
@@ -137,7 +137,7 @@ events = [{
     {
       "board_id": 18,
       "name": "Instructor Feedback",
-      "description": "Got feedback for how to study",
+      "description": "A instructor calls you for feedback, is it good...or bad???",
       "event_type": "chest",
       "energy": +1000,
       "IQ": 0
@@ -145,7 +145,7 @@ events = [{
     {
       "board_id": 19,
       "name": "Rails Forms && Validations",
-      "description": "Learned more on Rails",
+      "description": "Rails is awesome, FormFor & Strong Params FTW!!!",
       "event_type": "orange",
       "energy": -160,
       "IQ": 14
@@ -153,15 +153,15 @@ events = [{
     {
       "board_id": 20,
       "name": "RESTful Routes",
-      "description": "Learned RESTful Routes ",
+      "description": " EZ as pie, http://www.restular.com/",
       "event_type": "orange",
       "energy": -200,
       "IQ": 16
     },
     {
       "board_id": 21,
-      "name": "Breaktime",
-      "description": "Take a break",
+      "name": "Lunchtime",
+      "description": "Beware, Sophie's gonna knock you out for the afternoon lecture",
       "event_type": "free parking",
       "energy": 0,
       "IQ": 0
@@ -169,15 +169,15 @@ events = [{
     {
       "board_id": 22,
       "name": "Intro to JavaScript",
-      "description": "Learned the Basis of JavaScript",
+      "description": "Did i just get 40 labs this weekend?",
       "event_type": "red",
       "energy": -220,
       "IQ": 18
     },
     {
       "board_id": 23,
-      "name": "Rendom Event",
-      "description": "Nobody knows the future until hit this grid",
+      "name": "Pairing Lab",
+      "description": "Pairing Lab! Is this gonna be a good experience?",
       "event_type": "chance",
       "energy": 0,
       "IQ": 0
@@ -185,7 +185,7 @@ events = [{
     {
       "board_id": 24,
       "name": "JS Functional Programming",
-      "description": "Learned more on JavaScript",
+      "description": "Callback within a callback within a callback...",
       "event_type": "red",
       "energy": -220,
       "IQ": 18
@@ -193,15 +193,15 @@ events = [{
     {
       "board_id": 25,
       "name": "JS Object Oriented",
-      "description": "Learned JavaScript Object Orientation",
+      "description": "So wait, javascript has fake classes? And I still want to use them?",
       "event_type": "red",
       "energy": -240,
       "IQ": 20
     },
     {
       "board_id": 26,
-      "name": "Watching Evans's Costumes",
-      "description": "Have Fun and Relaxed",
+      "name": "Wangtron has entered the building",
+      "description": "Yes, he just walked in wearing that costume",
       "event_type": "railroad",
       "energy": +200,
       "IQ": 0
@@ -209,7 +209,7 @@ events = [{
     {
       "board_id": 27,
       "name": "Intro to the DOM",
-      "description": "Leaned Document Object Model",
+      "description": "This 25 min video is so long...and helpful",
       "event_type": "yellow",
       "energy": -260,
       "IQ": 0
@@ -217,7 +217,7 @@ events = [{
     {
       "board_id": 28,
       "name": "Learning Fetch",
-      "description": "Learned Fetch Requests",
+      "description": "I'm calling so many fetches, someone should really suggest we use classes or a store",
       "event_type": "yellow",
       "energy": -260,
       "IQ": 22
@@ -225,7 +225,7 @@ events = [{
     {
       "board_id": 29,
       "name": "Flatiron Student Present",
-      "description": "Finished FSP",
+      "description": "You don't really want to do this. But after doing it, you still didn't want to do it.",
       "event_type": "water",
       "energy": -150,
       "IQ": 0
@@ -233,7 +233,7 @@ events = [{
     {
       "board_id": 30,
       "name": "JS Using Rails API",
-      "description": "Leaned how to build API",
+      "description": "ITS ALL COMING TOGETHER, MOD1 MOD2 MOD3 UNITE",
       "event_type": "yellow",
       "energy": -280,
       "IQ": 24
@@ -241,7 +241,7 @@ events = [{
     {
       "board_id": 31,
       "name": "Failed Code Challenge",
-      "description": "Failed and Being Sad",
+      "description": "Go home. Take a rest. I know your gonna come back twice as hard",
       "event_type": "go to jail",
       "energy": -200,
       "IQ": 0
@@ -265,7 +265,7 @@ events = [{
     {
       "board_id": 34,
       "name": "Instructor Feedback",
-      "description": "Got feedback for how to study",
+      "description": "A instructor calls you for feedback, is it good...or bad???",
       "event_type": "chest",
       "energy": +1000,
       "IQ": 0
@@ -281,7 +281,7 @@ events = [{
     {
       "board_id": 36,
       "name": "Andrew 1 on 1",
-      "description": "Got advices from Andrew",
+      "description": "Prepare to learn",
       "event_type": "railroad",
       "energy": -200,
       "IQ": 0
@@ -289,7 +289,7 @@ events = [{
     {
       "board_id": 37,
       "name": "Pairing Lab",
-      "description": "Paired with classmate and Learned more",
+      "description": "Pairing Lab! Is this gonna be a good experience?",
       "event_type": "chance",
       "energy": -100,
       "IQ": 2
@@ -305,7 +305,7 @@ events = [{
     {
       "board_id": 39,
       "name": "Final Project was Rejected",
-      "description": "Need Additional Effort to find Another Topic",
+      "description": "Come on, you can do better than that?",
       "event_type": "blue",
       "energy": -100,
       "IQ": 0
